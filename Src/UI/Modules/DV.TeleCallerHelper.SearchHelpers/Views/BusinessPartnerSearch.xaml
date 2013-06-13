@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="DV.TeleCallerHelper.SearchHelpers.Views.BusinessPartnerSearch"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:Microsoft_Windows_Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero"
+             xmlns:dvControls="clr-namespace:DV.Controls;assembly=DV.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/DV.TeleCallerHelper.Common;component/Styles/CommonStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!--<TextBox x:Name="businessSearchCriteria" Margin="5,2,5,2" Text="{Binding SearchCriteriaText}"></TextBox>-->
+
+        <dvControls:AutoCompleteTextBox x:Name="businessSearchCriteria" Margin="5,2,5,2" Text="{Binding SearchCriteriaText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" 
+                                        AutoCompleteDataProvider="{Binding BusinessunitSearchDataProvider}"/>
+        <Button Grid.Column="1" Width="85" Command="{Binding SearchBusinessUnitsCommand}" Style="{StaticResource BoringButtonStyle}" VerticalAlignment="Center" HorizontalAlignment="Left" IsDefault="True">
+            <Button.Content>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Path Width="15" Height="15" Margin="0,0,7,0" Fill="Yellow" Stretch="Uniform" UseLayoutRounding="False" Data="F1 M 17.516,14.004C 16.3747,16.46 13.8947,18.18 11.016,18.18C 8.13733,18.18 5.664,16.46 4.52667,14.004L 4.50667,14.004C 4.088,13.0933 3.852,12.0814 3.852,11.016C 3.852,7.06799 7.068,3.85199 11.016,3.85199C 14.964,3.85199 18.1933,7.06799 18.1933,11.016C 18.1933,12.0814 17.9573,13.0933 17.536,14.004M 26.796,21.252L 21.072,15.504C 21.2867,15.024 21.4573,14.5187 21.6053,14.004L 21.62,14.004C 21.892,13.056 22.044,12.056 22.044,11.016C 22.044,4.93066 17.0893,0 11.016,0C 4.944,0 0,4.93066 0,11.016C 0,12.0507 0.145333,13.0533 0.413333,14.004L 0.424,14.004C 1.73067,18.628 5.98133,22.032 11.016,22.032C 12.612,22.032 14.1373,21.684 15.516,21.06L 21.2533,26.796C 22.02,27.564 23.0293,27.948 24.0253,27.948C 25.0333,27.948 26.0413,27.576 26.796,26.808C 27.576,26.0387 27.948,25.032 27.948,24.024C 27.948,23.016 27.576,22.02 26.796,21.252 Z " />
+                    <TextBlock Text="Search"></TextBlock>
+                </StackPanel>
+            </Button.Content>
+        </Button>
+
+        <DataGrid Grid.Row="1" Grid.ColumnSpan="2" Margin="5,10,5,10" Height="Auto" CanUserAddRows="True"
+                  ItemsSource="{Binding BusinessUnitSearchResults}" AutoGenerateColumns="False" AlternatingRowBackground="Aqua">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn Header="Send SMS" Width="Auto" Binding="{Binding SendSms, Mode=TwoWay, NotifyOnTargetUpdated=True}"></DataGridCheckBoxColumn>
+                <DataGridTextColumn Header="Business Unit Name" Binding="{Binding BusinessUnitName}" Width="200" ElementStyle="{StaticResource textWrapStyle}">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Phone Number" Binding="{Binding PhoneNumber}" Width="100" ElementStyle="{StaticResource textWrapStyle}">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Address" Binding="{Binding Address1}" Width="200" ElementStyle="{StaticResource textWrapStyle}">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Area" Binding="{Binding Area}" Width="100" ElementStyle="{StaticResource textWrapStyle}">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Nature of Business" Binding="{Binding NatureOfBusiness}" Width="100" ElementStyle="{StaticResource textWrapStyle}">
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="2" VerticalAlignment="Center">
+            <CheckBox Content=" Send SMS to Caller  " Foreground="#FFFBF6F6" Margin="5,0,0,5" IsChecked="{Binding SendSmsToCaller}"></CheckBox>
+            <Button Width="150" Command="{Binding SendSmsCommand}" Style="{StaticResource BoringButtonStyle}" HorizontalAlignment="Left">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Path Width="18" Height="16" Margin="0,0,7,0" Stretch="Uniform" UseLayoutRounding="False" Fill="Yellow" Data="F1 M 0.0449982,15.57C 0.0149994,15.435 0,15.2975 0,15.1575C 0,14.6725 0.272499,14.28 0.817497,13.98L 4.665,11.385L 7.005,11.385L 2.925,14.5425L 7.17,14.5425C 7.325,14.5425 7.42,14.5825 7.455,14.6625L 8.46001,16.9425L 15.6075,16.9425L 16.6125,14.6625C 16.6775,14.5825 16.7725,14.5425 16.8975,14.5425L 21.1425,14.5425L 17.04,11.385L 19.455,11.385L 23.25,13.98C 23.795,14.295 24.06,14.7175 24.045,15.2475C 24.045,15.3825 24.03,15.5175 24,15.6525L 23.34,19.2375C 23.28,19.5375 23.105,19.79 22.815,19.995C 22.525,20.2 22.2,20.3025 21.84,20.3025L 2.2725,20.3025C 1.4775,20.3025 0.962494,19.94 0.727501,19.215L 0.0449982,15.57 Z M 5.52,6.09753L 11.9925,0L 18.5025,6.09753L 14.8875,6.09753L 14.8875,12L 9.12749,12L 9.12749,6.09753L 5.52,6.09753 Z "/>
+                        <TextBlock Text="Save and Send SMS"></TextBlock>
+                    </StackPanel>
+                </Button.Content>
+            </Button>    
+        </StackPanel>
+
+    </Grid>
+</UserControl>

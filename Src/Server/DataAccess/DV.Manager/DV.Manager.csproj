@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BC25F1A1-134A-474D-8382-CDF95D8D6025}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DV.Manager</RootNamespace>
+    <AssemblyName>DV.Manager</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\libs\EF 5.0\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessUnitManager.cs" />
+    <Compile Include="CallerRequestCommitManager.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="DateTimeExtensions.cs" />
+    <Compile Include="DBCommitManager\AddressCommitManager.cs" />
+    <Compile Include="DBCommitManager\BusinessUnitManager.cs" />
+    <Compile Include="DBCommitManager\BusinessUnitPhoneNumberManager.cs" />
+    <Compile Include="DBCommitManager\CallerCommitManager.cs" />
+    <Compile Include="DBCommitManager\CallerRequestHistoryCommitManager.cs" />
+    <Compile Include="DBCommitManager\ProfessionCommitManager.cs" />
+    <Compile Include="DBCommitManager\SMSQueueCommitManager.cs" />
+    <Compile Include="DBCommitManager\SmsHistoryCommitManager.cs" />
+    <Compile Include="Factory\CommitManagerFactory.cs" />
+    <Compile Include="Factory\ManagerFactory.cs" />
+    <Compile Include="AbstractCommitManager.cs" />
+    <Compile Include="Interfaces\ISearch.cs" />
+    <Compile Include="Request\BusinessUnitSearchRequest.cs" />
+    <Compile Include="Request\CallerRequestCommit.cs" />
+    <Compile Include="Request\CallerSearchRequest.cs" />
+    <Compile Include="CallerSearchManager.cs" />
+    <Compile Include="BusinessUnitsSearchManager.cs" />
+    <Compile Include="Interfaces\IManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DV.DataProvider\DV.DataProvider.csproj">
+      <Project>{70622f41-ffe3-4ddf-9587-7ddec70616dc}</Project>
+      <Name>DV.DataProvider</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

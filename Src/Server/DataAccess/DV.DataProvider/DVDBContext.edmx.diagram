@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7e3e43b90d654aee8ebb4ad1c65468d5" Name="Diagram1" ZoomLevel="18">
+        <EntityTypeShape EntityType="dvradius_NewModel.Address" Width="1.5" PointX="12" PointY="0.5" />
+        <EntityTypeShape EntityType="dvradius_NewModel.BUContactNumber" Width="1.5" PointX="15" PointY="2" />
+        <EntityTypeShape EntityType="dvradius_NewModel.BusinessUnit" Width="1.5" PointX="18" PointY="3.5" />
+        <EntityTypeShape EntityType="dvradius_NewModel.BusinessUnitCategory" Width="1.5" PointX="0.5" PointY="5" />
+        <EntityTypeShape EntityType="dvradius_NewModel.BusinessUnitPhoneNumber" Width="1.5" PointX="3" PointY="6.5" />
+        <EntityTypeShape EntityType="dvradius_NewModel.BusinessUnitType" Width="1.5" PointX="6" PointY="8" />
+        <EntityTypeShape EntityType="dvradius_NewModel.Caller" Width="1.5" PointX="9" PointY="9.5" />
+        <EntityTypeShape EntityType="dvradius_NewModel.CallerRequestHistory" Width="1.5" PointX="12" PointY="11" />
+        <EntityTypeShape EntityType="dvradius_NewModel.Employee" Width="1.5" PointX="15" PointY="12.5" />
+        <EntityTypeShape EntityType="dvradius_NewModel.EmployeeType" Width="1.5" PointX="18" PointY="14" />
+        <EntityTypeShape EntityType="dvradius_NewModel.Member" Width="1.5" PointX="0.5" PointY="15.5" />
+        <EntityTypeShape EntityType="dvradius_NewModel.PhoneNumberType" Width="1.5" PointX="3" PointY="17" />
+        <EntityTypeShape EntityType="dvradius_NewModel.Profession" Width="1.5" PointX="6" PointY="18.5" />
+        <EntityTypeShape EntityType="dvradius_NewModel.SMSHistory" Width="1.5" PointX="9" PointY="20" />
+        <EntityTypeShape EntityType="dvradius_NewModel.SMSLimitFrequency" Width="1.5" PointX="12" PointY="21.5" />
+        <EntityTypeShape EntityType="dvradius_NewModel.SMSQueue" Width="1.5" PointX="15" PointY="23" />
+        <EntityTypeShape EntityType="dvradius_NewModel.BusinessUnit_Flat" Width="1.5" PointX="18" PointY="24.5" />
+        <EntityTypeShape EntityType="dvradius_NewModel.vw_BusinessUnitPhoneNumbers" Width="1.5" PointX="0.5" PointY="26" />
+        <AssociationConnector Association="dvradius_NewModel.FK_BusinessUnit_Address" />
+        <AssociationConnector Association="dvradius_NewModel.FK_Caller_Address" />
+        <AssociationConnector Association="dvradius_NewModel.FK_Employee_Address" />
+        <AssociationConnector Association="dvradius_NewModel.FK_BUContactNumber_BusinessUnit" />
+        <AssociationConnector Association="dvradius_NewModel.FK_BusinessUnit_BusinessUnitCategory" />
+        <AssociationConnector Association="dvradius_NewModel.FK_BusinessUnit_BusinessUnitType" />
+        <AssociationConnector Association="dvradius_NewModel.FK_BusinessUnit_SMSLimitFrequency" />
+        <AssociationConnector Association="dvradius_NewModel.FK_BusinessUnitPhoneNumber_BusinessUnit" />
+        <AssociationConnector Association="dvradius_NewModel.FK_BusinessUnitPhoneNumber_BusinessUnit1" />
+        <AssociationConnector Association="dvradius_NewModel.FK_Member_BusinessUnit" />
+        <AssociationConnector Association="dvradius_NewModel.FK_SMSHistory_BusinessUnit" />
+        <AssociationConnector Association="dvradius_NewModel.FK_BusinessUnitCategory_BusinessUnitCategory" />
+        <AssociationConnector Association="dvradius_NewModel.FK_BusinessUnitPhoneNumber_BusinessUnitPhoneNumber1" />
+        <AssociationConnector Association="dvradius_NewModel.FK_BusinessUnitType_SMSLimitFrequency" />
+        <AssociationConnector Association="dvradius_NewModel.FK_Caller_Profession" />
+        <AssociationConnector Association="dvradius_NewModel.FK_CallerRequestHistory_Caller" />
+        <AssociationConnector Association="dvradius_NewModel.FK_CallerRequestHistory_Employee" />
+        <AssociationConnector Association="dvradius_NewModel.FK_SMSHistory_CallerRequestHistory" />
+        <AssociationConnector Association="dvradius_NewModel.FK_Employee_EmployeeType" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

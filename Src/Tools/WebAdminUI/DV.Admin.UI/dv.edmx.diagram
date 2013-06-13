@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b88bac4bef5f4360880ac0cb7af985e7" Name="Diagram1" >
+        <EntityTypeShape EntityType="dv.Address" Width="1.5" PointX="8.654490897736741" PointY="17.704689406652324" />
+        <EntityTypeShape EntityType="dv.BUContactNumber" Width="1.5" PointX="1.160858592559052" PointY="23.993924614039216" />
+        <EntityTypeShape EntityType="dv.BusinessUnit" Width="1.5" PointX="7.2985496890258741" PointY="6.57692638345851" />
+        <EntityTypeShape EntityType="dv.BusinessUnitCategory" Width="1.5" PointX="3.1990329079325464" PointY="0.4298710080002765" />
+        <EntityTypeShape EntityType="dv.BusinessUnitPhoneNumber" Width="1.5" PointX="10.03496857454766" PointY="25.563384842855569" />
+        <EntityTypeShape EntityType="dv.BusinessUnitType" Width="1.5" PointX="11.38230028906013" PointY="14.816865242466733" />
+        <EntityTypeShape EntityType="dv.Caller" Width="1.5" PointX="2.37868890277049" PointY="14.552870921116728" />
+        <EntityTypeShape EntityType="dv.CallerRequestHistory" Width="1.5" PointX="3.71262643659144" PointY="2.0370965013453253" />
+        <EntityTypeShape EntityType="dv.Employee" Width="1.5" PointX="0.47286566555167808" PointY="20.334214518002334" />
+        <EntityTypeShape EntityType="dv.EmployeeType" Width="1.5" PointX="0.0022668186585730029" PointY="27.833977876153764" />
+        <EntityTypeShape EntityType="dv.Member" Width="1.5" PointX="11.537117985792978" PointY="13.181487178980134" />
+        <EntityTypeShape EntityType="dv.PhoneNumberType" Width="1.5" PointX="6.8133952928769377" PointY="18.97037799049652" />
+        <EntityTypeShape EntityType="dv.Profession" Width="1.5" PointX="7.1443588915953216" PointY="7.8250692821224543" />
+        <EntityTypeShape EntityType="dv.SMSHistory" Width="1.5" PointX="1.7727671236604299" PointY="9.5784473463792565" />
+        <EntityTypeShape EntityType="dv.SMSLimitFrequency" Width="1.5" PointX="4.2412117199232853" PointY="20.218317175385689" />
+        <EntityTypeShape EntityType="dv.SMSQueue" Width="1.5" PointX="0.52838330181705917" PointY="0.62715807586310346" />
+        <AssociationConnector Association="dv.FK_BusinessUnit_Address" />
+        <AssociationConnector Association="dv.FK_Caller_Address" />
+        <AssociationConnector Association="dv.FK_Employee_Address" />
+        <AssociationConnector Association="dv.FK_BUContactNumber_BusinessUnit" />
+        <AssociationConnector Association="dv.FK_BusinessUnit_BusinessUnitCategory" />
+        <AssociationConnector Association="dv.FK_BusinessUnit_BusinessUnitType" />
+        <AssociationConnector Association="dv.FK_BusinessUnit_SMSLimitFrequency" />
+        <AssociationConnector Association="dv.FK_BusinessUnitPhoneNumber_BusinessUnit" />
+        <AssociationConnector Association="dv.FK_Member_BusinessUnit" />
+        <AssociationConnector Association="dv.FK_SMSHistory_BusinessUnit" />
+        <AssociationConnector Association="dv.FK_BusinessUnitCategory_BusinessUnitCategory" />
+        <AssociationConnector Association="dv.FK_BusinessUnitPhoneNumber_BusinessUnitPhoneNumber1" />
+        <AssociationConnector Association="dv.FK_BusinessUnitType_SMSLimitFrequency" />
+        <AssociationConnector Association="dv.FK_Caller_Profession" />
+        <AssociationConnector Association="dv.FK_CallerRequestHistory_Caller" />
+        <AssociationConnector Association="dv.FK_CallerRequestHistory_Employee" />
+        <AssociationConnector Association="dv.FK_SMSHistory_CallerRequestHistory" />
+        <AssociationConnector Association="dv.FK_Employee_EmployeeType" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

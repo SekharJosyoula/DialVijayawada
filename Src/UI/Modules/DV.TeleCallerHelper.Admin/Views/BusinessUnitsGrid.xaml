@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="DV.TeleCallerHelper.Admin.Views.BusinessUnitsGrid"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/DV.TeleCallerHelper.Common;component/Styles/CommonStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <DataGrid Grid.Row="1" Grid.ColumnSpan="2" Margin="5,10,5,10" Height="Auto" CanUserAddRows="True"
+                  ItemsSource="{Binding BusinessUnitSearchResults}" AutoGenerateColumns="False" AlternatingRowBackground="Aqua">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn Header="Send SMS" Width="Auto" Binding="{Binding SendSms}" ElementStyle="{StaticResource wrapWithCenter}"></DataGridCheckBoxColumn>
+                <DataGridTextColumn Header="Business Unit Name" Binding="{Binding BusinessUnitName}" Width="200" ElementStyle="{StaticResource textWrapStyle}">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Phone Number" Binding="{Binding PhoneNumber}" Width="100" ElementStyle="{StaticResource textWrapStyle}">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Address" Binding="{Binding Address1}" Width="200" ElementStyle="{StaticResource textWrapStyle}">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Area" Binding="{Binding Area}" Width="100" ElementStyle="{StaticResource textWrapStyle}">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Nature of Business" Binding="{Binding NatureOfBusiness}" Width="100" ElementStyle="{StaticResource textWrapStyle}">
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

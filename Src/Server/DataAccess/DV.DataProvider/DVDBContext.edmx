@@ -1,0 +1,1622 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="dvradius_NewModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="dvradius_NewModelStoreContainer">
+          <EntitySet Name="Address" EntityType="dvradius_NewModel.Store.Address" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BUContactNumber" EntityType="dvradius_NewModel.Store.BUContactNumber" store:Type="Tables" store:Schema="dbo" store:Name="BUContactNumber">
+            <DefiningQuery>SELECT 
+      [BUContactNumber].[BUContactNumberID] AS [BUContactNumberID], 
+      [BUContactNumber].[BusinessUnitID] AS [BusinessUnitID], 
+      [BUContactNumber].[ContactNumber] AS [ContactNumber], 
+      [BUContactNumber].[isSMSContact] AS [isSMSContact], 
+      [BUContactNumber].[isActive] AS [isActive]
+      FROM [dbo].[BUContactNumber] AS [BUContactNumber]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="BusinessUnit" EntityType="dvradius_NewModel.Store.BusinessUnit" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BusinessUnitCategory" EntityType="dvradius_NewModel.Store.BusinessUnitCategory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BusinessUnitPhoneNumber" EntityType="dvradius_NewModel.Store.BusinessUnitPhoneNumber" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BusinessUnitType" EntityType="dvradius_NewModel.Store.BusinessUnitType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Caller" EntityType="dvradius_NewModel.Store.Caller" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CallerRequestHistory" EntityType="dvradius_NewModel.Store.CallerRequestHistory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Employee" EntityType="dvradius_NewModel.Store.Employee" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EmployeeType" EntityType="dvradius_NewModel.Store.EmployeeType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Member" EntityType="dvradius_NewModel.Store.Member" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PhoneNumberType" EntityType="dvradius_NewModel.Store.PhoneNumberType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Profession" EntityType="dvradius_NewModel.Store.Profession" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SMSHistory" EntityType="dvradius_NewModel.Store.SMSHistory" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SMSLimitFrequency" EntityType="dvradius_NewModel.Store.SMSLimitFrequency" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SMSQueue" EntityType="dvradius_NewModel.Store.SMSQueue" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="BusinessUnit_Flat" EntityType="dvradius_NewModel.Store.BusinessUnit_Flat" store:Type="Views" store:Schema="dbo" store:Name="BusinessUnit_Flat">
+            <DefiningQuery>SELECT 
+      [BusinessUnit_Flat].[BusinessUnitID] AS [BusinessUnitID], 
+      [BusinessUnit_Flat].[Name] AS [Name], 
+      [BusinessUnit_Flat].[NatureofBusiness] AS [NatureofBusiness], 
+      [BusinessUnit_Flat].[CategoryID] AS [CategoryID], 
+      [BusinessUnit_Flat].[BusinessUnitTypeID] AS [BusinessUnitTypeID], 
+      [BusinessUnit_Flat].[AdressID] AS [AdressID], 
+      [BusinessUnit_Flat].[SMSLimitFrequency] AS [SMSLimitFrequency], 
+      [BusinessUnit_Flat].[SMSLimitCount] AS [SMSLimitCount], 
+      [BusinessUnit_Flat].[PrimaryContactNumber] AS [PrimaryContactNumber], 
+      [BusinessUnit_Flat].[SMSContactNumber] AS [SMSContactNumber], 
+      [BusinessUnit_Flat].[ContactPersonName] AS [ContactPersonName], 
+      [BusinessUnit_Flat].[Keywords] AS [Keywords], 
+      [BusinessUnit_Flat].[AdditionalInfo] AS [AdditionalInfo], 
+      [BusinessUnit_Flat].[IsSMSEnabled] AS [IsSMSEnabled], 
+      [BusinessUnit_Flat].[CategoryName] AS [CategoryName], 
+      [BusinessUnit_Flat].[AddressID] AS [AddressID], 
+      [BusinessUnit_Flat].[DoorNo] AS [DoorNo], 
+      [BusinessUnit_Flat].[BuildingName] AS [BuildingName], 
+      [BusinessUnit_Flat].[Street] AS [Street], 
+      [BusinessUnit_Flat].[Address1] AS [Address1], 
+      [BusinessUnit_Flat].[Area] AS [Area], 
+      [BusinessUnit_Flat].[City] AS [City], 
+      [BusinessUnit_Flat].[District] AS [District], 
+      [BusinessUnit_Flat].[Pincode] AS [Pincode], 
+      [BusinessUnit_Flat].[LandMark] AS [LandMark], 
+      [BusinessUnit_Flat].[EmailID] AS [EmailID], 
+      [BusinessUnit_Flat].[CreatedBy] AS [CreatedBy], 
+      [BusinessUnit_Flat].[CreatedOn] AS [CreatedOn], 
+      [BusinessUnit_Flat].[ModifiedBy] AS [ModifiedBy], 
+      [BusinessUnit_Flat].[ModifiedOn] AS [ModifiedOn], 
+      [BusinessUnit_Flat].[BusinessUnitTypeName] AS [BusinessUnitTypeName], 
+      [BusinessUnit_Flat].[BusinessUnitSMSCountLimit] AS [BusinessUnitSMSCountLimit], 
+      [BusinessUnit_Flat].[BusinessUnitSMSLimitFrequencyID] AS [BusinessUnitSMSLimitFrequencyID]
+      FROM [dbo].[BusinessUnit_Flat] AS [BusinessUnit_Flat]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_BusinessUnitPhoneNumbers" EntityType="dvradius_NewModel.Store.vw_BusinessUnitPhoneNumbers" store:Type="Views" store:Schema="dbo" store:Name="vw_BusinessUnitPhoneNumbers">
+            <DefiningQuery>SELECT 
+      [vw_BusinessUnitPhoneNumbers].[BusinessUnitID] AS [BusinessUnitID], 
+      [vw_BusinessUnitPhoneNumbers].[ContactNumber] AS [ContactNumber], 
+      [vw_BusinessUnitPhoneNumbers].[SMSContactNumber] AS [SMSContactNumber]
+      FROM [dbo].[vw_BusinessUnitPhoneNumbers] AS [vw_BusinessUnitPhoneNumbers]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_BUContactNumber_BusinessUnit" Association="dvradius_NewModel.Store.FK_BUContactNumber_BusinessUnit">
+            <End Role="BusinessUnit" EntitySet="BusinessUnit" />
+            <End Role="BUContactNumber" EntitySet="BUContactNumber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BusinessUnit_Address" Association="dvradius_NewModel.Store.FK_BusinessUnit_Address">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="BusinessUnit" EntitySet="BusinessUnit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BusinessUnit_BusinessUnitCategory" Association="dvradius_NewModel.Store.FK_BusinessUnit_BusinessUnitCategory">
+            <End Role="BusinessUnitCategory" EntitySet="BusinessUnitCategory" />
+            <End Role="BusinessUnit" EntitySet="BusinessUnit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BusinessUnit_BusinessUnitType" Association="dvradius_NewModel.Store.FK_BusinessUnit_BusinessUnitType">
+            <End Role="BusinessUnitType" EntitySet="BusinessUnitType" />
+            <End Role="BusinessUnit" EntitySet="BusinessUnit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BusinessUnit_SMSLimitFrequency" Association="dvradius_NewModel.Store.FK_BusinessUnit_SMSLimitFrequency">
+            <End Role="SMSLimitFrequency" EntitySet="SMSLimitFrequency" />
+            <End Role="BusinessUnit" EntitySet="BusinessUnit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BusinessUnitCategory_BusinessUnitCategory" Association="dvradius_NewModel.Store.FK_BusinessUnitCategory_BusinessUnitCategory">
+            <End Role="BusinessUnitCategory" EntitySet="BusinessUnitCategory" />
+            <End Role="BusinessUnitCategory1" EntitySet="BusinessUnitCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BusinessUnitPhoneNumber_BusinessUnit" Association="dvradius_NewModel.Store.FK_BusinessUnitPhoneNumber_BusinessUnit">
+            <End Role="BusinessUnit" EntitySet="BusinessUnit" />
+            <End Role="BusinessUnitPhoneNumber" EntitySet="BusinessUnitPhoneNumber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BusinessUnitPhoneNumber_BusinessUnit1" Association="dvradius_NewModel.Store.FK_BusinessUnitPhoneNumber_BusinessUnit1">
+            <End Role="BusinessUnit" EntitySet="BusinessUnit" />
+            <End Role="BusinessUnitPhoneNumber" EntitySet="BusinessUnitPhoneNumber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BusinessUnitPhoneNumber_BusinessUnitPhoneNumber1" Association="dvradius_NewModel.Store.FK_BusinessUnitPhoneNumber_BusinessUnitPhoneNumber1">
+            <End Role="PhoneNumberType" EntitySet="PhoneNumberType" />
+            <End Role="BusinessUnitPhoneNumber" EntitySet="BusinessUnitPhoneNumber" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BusinessUnitType_SMSLimitFrequency" Association="dvradius_NewModel.Store.FK_BusinessUnitType_SMSLimitFrequency">
+            <End Role="SMSLimitFrequency" EntitySet="SMSLimitFrequency" />
+            <End Role="BusinessUnitType" EntitySet="BusinessUnitType" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Caller_Address" Association="dvradius_NewModel.Store.FK_Caller_Address">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="Caller" EntitySet="Caller" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Caller_Profession" Association="dvradius_NewModel.Store.FK_Caller_Profession">
+            <End Role="Profession" EntitySet="Profession" />
+            <End Role="Caller" EntitySet="Caller" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CallerRequestHistory_Caller" Association="dvradius_NewModel.Store.FK_CallerRequestHistory_Caller">
+            <End Role="Caller" EntitySet="Caller" />
+            <End Role="CallerRequestHistory" EntitySet="CallerRequestHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CallerRequestHistory_Employee" Association="dvradius_NewModel.Store.FK_CallerRequestHistory_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="CallerRequestHistory" EntitySet="CallerRequestHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Address" Association="dvradius_NewModel.Store.FK_Employee_Address">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_EmployeeType" Association="dvradius_NewModel.Store.FK_Employee_EmployeeType">
+            <End Role="EmployeeType" EntitySet="EmployeeType" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Member_BusinessUnit" Association="dvradius_NewModel.Store.FK_Member_BusinessUnit">
+            <End Role="BusinessUnit" EntitySet="BusinessUnit" />
+            <End Role="Member" EntitySet="Member" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SMSHistory_BusinessUnit" Association="dvradius_NewModel.Store.FK_SMSHistory_BusinessUnit">
+            <End Role="BusinessUnit" EntitySet="BusinessUnit" />
+            <End Role="SMSHistory" EntitySet="SMSHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SMSHistory_CallerRequestHistory" Association="dvradius_NewModel.Store.FK_SMSHistory_CallerRequestHistory">
+            <End Role="CallerRequestHistory" EntitySet="CallerRequestHistory" />
+            <End Role="SMSHistory" EntitySet="SMSHistory" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Name="AddressID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="DoorNo" Type="varchar" MaxLength="20" />
+          <Property Name="BuildingName" Type="varchar" MaxLength="50" />
+          <Property Name="Street" Type="varchar" MaxLength="50" />
+          <Property Name="Address1" Type="varchar" MaxLength="300" />
+          <Property Name="Area" Type="varchar" MaxLength="200" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="District" Type="varchar" MaxLength="50" />
+          <Property Name="Pincode" Type="varchar" MaxLength="10" />
+          <Property Name="LandMark" Type="varchar" MaxLength="50" />
+          <Property Name="EmailID" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'dvradius_New.dbo.BUContactNumber' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="BUContactNumber">
+          <Key>
+            <PropertyRef Name="BUContactNumberID" />
+            <PropertyRef Name="BusinessUnitID" />
+            <PropertyRef Name="ContactNumber" />
+          </Key>
+          <Property Name="BUContactNumberID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BusinessUnitID" Type="int" Nullable="false" />
+          <Property Name="ContactNumber" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="isSMSContact" Type="bit" />
+          <Property Name="isActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="BusinessUnit">
+          <Key>
+            <PropertyRef Name="BusinessUnitID" />
+          </Key>
+          <Property Name="BusinessUnitID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" MaxLength="300" />
+          <Property Name="NatureofBusiness" Type="varchar" MaxLength="200" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="BusinessUnitTypeID" Type="int" />
+          <Property Name="AdressID" Type="int" />
+          <Property Name="SMSLimitFrequency" Type="int" />
+          <Property Name="SMSLimitCount" Type="int" />
+          <Property Name="PrimaryContactNumber" Type="varchar" MaxLength="20" />
+          <Property Name="SecondaryContactNumber" Type="varchar" MaxLength="300" />
+          <Property Name="SMSContactNumber" Type="varchar" MaxLength="20" />
+          <Property Name="ContactPersonName" Type="varchar" MaxLength="100" />
+          <Property Name="Keywords" Type="varchar" MaxLength="100" />
+          <Property Name="AdditionalInfo" Type="varchar" MaxLength="500" />
+          <Property Name="IsSMSEnabled" Type="bit" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="BusinessUnitCategory">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="LongName" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+          <Property Name="ParentID" Type="int" />
+        </EntityType>
+        <EntityType Name="BusinessUnitPhoneNumber">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BusinessUnitId" Type="int" Nullable="false" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="250" />
+          <Property Name="PhoneNumberTypeId" Type="int" Nullable="false" />
+          <Property Name="isActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BusinessUnitType">
+          <Key>
+            <PropertyRef Name="BusinessUnitTypeID" />
+          </Key>
+          <Property Name="BusinessUnitTypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="SMSCountLimit" Type="int" />
+          <Property Name="SMSLimitFrequencyID" Type="int" />
+        </EntityType>
+        <EntityType Name="Caller">
+          <Key>
+            <PropertyRef Name="CallerID" />
+          </Key>
+          <Property Name="CallerID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="PhoneNumber" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="AlternatePhoneNumber" Type="varchar" MaxLength="20" />
+          <Property Name="ProfessionID" Type="int" />
+          <Property Name="AddressID" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CallerRequestHistory">
+          <Key>
+            <PropertyRef Name="CallerRequestHistoryID" />
+          </Key>
+          <Property Name="CallerRequestHistoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CallerID" Type="int" Nullable="false" />
+          <Property Name="CallDateTime" Type="datetime" Nullable="false" />
+          <Property Name="RequestedDetails" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="TeleCallerID" Type="int" Nullable="false" />
+          <Property Name="CallDurationinSecs" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="EmployeeTypeID" Type="int" Nullable="false" />
+          <Property Name="AddressID" Type="int" Nullable="false" />
+          <Property Name="WindowsNTName" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="ModifiedOn" Type="datetime" />
+        </EntityType>
+        <EntityType Name="EmployeeType">
+          <Key>
+            <PropertyRef Name="EmployeeTypeID" />
+          </Key>
+          <Property Name="EmployeeTypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="MemberID" />
+          </Key>
+          <Property Name="MemberID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="BusinessUnitID" Type="int" Nullable="false" />
+          <Property Name="AmountPaid" Type="money" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PhoneNumberType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Profession">
+          <Key>
+            <PropertyRef Name="ProfessionID" />
+          </Key>
+          <Property Name="ProfessionID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SMSHistory">
+          <Key>
+            <PropertyRef Name="SMSHistoryID" />
+          </Key>
+          <Property Name="SMSHistoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="CallerRequestHistoryID" Type="int" Nullable="false" />
+          <Property Name="BusinessUnitID" Type="int" Nullable="false" />
+          <Property Name="isSMSSenttoCaller" Type="bit" />
+          <Property Name="isSMSSenttoBU" Type="bit" />
+        </EntityType>
+        <EntityType Name="SMSLimitFrequency">
+          <Key>
+            <PropertyRef Name="SMSLimitFrequencyID" />
+          </Key>
+          <Property Name="SMSLimitFrequencyID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="SMSQueue">
+          <Key>
+            <PropertyRef Name="SMSQueueID" />
+          </Key>
+          <Property Name="SMSQueueID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RecipientMobileNumber" Type="varchar" MaxLength="100" />
+          <Property Name="Message" Type="varchar" MaxLength="500" />
+          <Property Name="QueueDateTime" Type="datetime" />
+          <Property Name="ReturnCode" Type="int" />
+          <Property Name="ReturnMessage" Type="varchar" MaxLength="100" />
+          <Property Name="isSMSSent" Type="bit" />
+          <Property Name="ProcessedDateTime" Type="datetime" />
+          <Property Name="isProcessed" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'dvradius_New.dbo.BusinessUnit_Flat' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="BusinessUnit_Flat">
+          <Key>
+            <PropertyRef Name="BusinessUnitID" />
+          </Key>
+          <Property Name="BusinessUnitID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="300" />
+          <Property Name="NatureofBusiness" Type="varchar" MaxLength="200" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="BusinessUnitTypeID" Type="int" />
+          <Property Name="AdressID" Type="int" />
+          <Property Name="SMSLimitFrequency" Type="int" />
+          <Property Name="SMSLimitCount" Type="int" />
+          <Property Name="PrimaryContactNumber" Type="nvarchar(max)" />
+          <Property Name="SMSContactNumber" Type="nvarchar(max)" />
+          <Property Name="ContactPersonName" Type="varchar" MaxLength="100" />
+          <Property Name="Keywords" Type="varchar" MaxLength="100" />
+          <Property Name="AdditionalInfo" Type="varchar" MaxLength="500" />
+          <Property Name="IsSMSEnabled" Type="bit" />
+          <Property Name="CategoryName" Type="varchar" MaxLength="50" />
+          <Property Name="AddressID" Type="int" />
+          <Property Name="DoorNo" Type="varchar" MaxLength="20" />
+          <Property Name="BuildingName" Type="varchar" MaxLength="50" />
+          <Property Name="Street" Type="varchar" MaxLength="50" />
+          <Property Name="Address1" Type="varchar" MaxLength="300" />
+          <Property Name="Area" Type="varchar" MaxLength="200" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="District" Type="varchar" MaxLength="50" />
+          <Property Name="Pincode" Type="varchar" MaxLength="10" />
+          <Property Name="LandMark" Type="varchar" MaxLength="50" />
+          <Property Name="EmailID" Type="varchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedOn" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="ModifiedOn" Type="datetime" />
+          <Property Name="BusinessUnitTypeName" Type="varchar" MaxLength="20" />
+          <Property Name="BusinessUnitSMSCountLimit" Type="int" />
+          <Property Name="BusinessUnitSMSLimitFrequencyID" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'dvradius_New.dbo.vw_BusinessUnitPhoneNumbers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="vw_BusinessUnitPhoneNumbers">
+          <Key>
+            <PropertyRef Name="BusinessUnitID" />
+          </Key>
+          <Property Name="BusinessUnitID" Type="int" Nullable="false" />
+          <Property Name="ContactNumber" Type="nvarchar(max)" />
+          <Property Name="SMSContactNumber" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_BUContactNumber_BusinessUnit">
+          <End Role="BusinessUnit" Type="dvradius_NewModel.Store.BusinessUnit" Multiplicity="1" />
+          <End Role="BUContactNumber" Type="dvradius_NewModel.Store.BUContactNumber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BusinessUnit">
+              <PropertyRef Name="BusinessUnitID" />
+            </Principal>
+            <Dependent Role="BUContactNumber">
+              <PropertyRef Name="BusinessUnitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BusinessUnit_Address">
+          <End Role="Address" Type="dvradius_NewModel.Store.Address" Multiplicity="0..1" />
+          <End Role="BusinessUnit" Type="dvradius_NewModel.Store.BusinessUnit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressID" />
+            </Principal>
+            <Dependent Role="BusinessUnit">
+              <PropertyRef Name="AdressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BusinessUnit_BusinessUnitCategory">
+          <End Role="BusinessUnitCategory" Type="dvradius_NewModel.Store.BusinessUnitCategory" Multiplicity="0..1" />
+          <End Role="BusinessUnit" Type="dvradius_NewModel.Store.BusinessUnit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BusinessUnitCategory">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="BusinessUnit">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BusinessUnit_BusinessUnitType">
+          <End Role="BusinessUnitType" Type="dvradius_NewModel.Store.BusinessUnitType" Multiplicity="0..1" />
+          <End Role="BusinessUnit" Type="dvradius_NewModel.Store.BusinessUnit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BusinessUnitType">
+              <PropertyRef Name="BusinessUnitTypeID" />
+            </Principal>
+            <Dependent Role="BusinessUnit">
+              <PropertyRef Name="BusinessUnitTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BusinessUnit_SMSLimitFrequency">
+          <End Role="SMSLimitFrequency" Type="dvradius_NewModel.Store.SMSLimitFrequency" Multiplicity="0..1" />
+          <End Role="BusinessUnit" Type="dvradius_NewModel.Store.BusinessUnit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SMSLimitFrequency">
+              <PropertyRef Name="SMSLimitFrequencyID" />
+            </Principal>
+            <Dependent Role="BusinessUnit">
+              <PropertyRef Name="SMSLimitFrequency" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BusinessUnitCategory_BusinessUnitCategory">
+          <End Role="BusinessUnitCategory" Type="dvradius_NewModel.Store.BusinessUnitCategory" Multiplicity="0..1" />
+          <End Role="BusinessUnitCategory1" Type="dvradius_NewModel.Store.BusinessUnitCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BusinessUnitCategory">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="BusinessUnitCategory1">
+              <PropertyRef Name="ParentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BusinessUnitPhoneNumber_BusinessUnit">
+          <End Role="BusinessUnit" Type="dvradius_NewModel.Store.BusinessUnit" Multiplicity="1" />
+          <End Role="BusinessUnitPhoneNumber" Type="dvradius_NewModel.Store.BusinessUnitPhoneNumber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BusinessUnit">
+              <PropertyRef Name="BusinessUnitID" />
+            </Principal>
+            <Dependent Role="BusinessUnitPhoneNumber">
+              <PropertyRef Name="BusinessUnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BusinessUnitPhoneNumber_BusinessUnit1">
+          <End Role="BusinessUnit" Type="dvradius_NewModel.Store.BusinessUnit" Multiplicity="1" />
+          <End Role="BusinessUnitPhoneNumber" Type="dvradius_NewModel.Store.BusinessUnitPhoneNumber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BusinessUnit">
+              <PropertyRef Name="BusinessUnitID" />
+            </Principal>
+            <Dependent Role="BusinessUnitPhoneNumber">
+              <PropertyRef Name="BusinessUnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BusinessUnitPhoneNumber_BusinessUnitPhoneNumber1">
+          <End Role="PhoneNumberType" Type="dvradius_NewModel.Store.PhoneNumberType" Multiplicity="1" />
+          <End Role="BusinessUnitPhoneNumber" Type="dvradius_NewModel.Store.BusinessUnitPhoneNumber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhoneNumberType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BusinessUnitPhoneNumber">
+              <PropertyRef Name="PhoneNumberTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BusinessUnitType_SMSLimitFrequency">
+          <End Role="SMSLimitFrequency" Type="dvradius_NewModel.Store.SMSLimitFrequency" Multiplicity="0..1" />
+          <End Role="BusinessUnitType" Type="dvradius_NewModel.Store.BusinessUnitType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SMSLimitFrequency">
+              <PropertyRef Name="SMSLimitFrequencyID" />
+            </Principal>
+            <Dependent Role="BusinessUnitType">
+              <PropertyRef Name="SMSLimitFrequencyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Caller_Address">
+          <End Role="Address" Type="dvradius_NewModel.Store.Address" Multiplicity="0..1" />
+          <End Role="Caller" Type="dvradius_NewModel.Store.Caller" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressID" />
+            </Principal>
+            <Dependent Role="Caller">
+              <PropertyRef Name="AddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Caller_Profession">
+          <End Role="Profession" Type="dvradius_NewModel.Store.Profession" Multiplicity="0..1" />
+          <End Role="Caller" Type="dvradius_NewModel.Store.Caller" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profession">
+              <PropertyRef Name="ProfessionID" />
+            </Principal>
+            <Dependent Role="Caller">
+              <PropertyRef Name="ProfessionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CallerRequestHistory_Caller">
+          <End Role="Caller" Type="dvradius_NewModel.Store.Caller" Multiplicity="1" />
+          <End Role="CallerRequestHistory" Type="dvradius_NewModel.Store.CallerRequestHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Caller">
+              <PropertyRef Name="CallerID" />
+            </Principal>
+            <Dependent Role="CallerRequestHistory">
+              <PropertyRef Name="CallerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CallerRequestHistory_Employee">
+          <End Role="Employee" Type="dvradius_NewModel.Store.Employee" Multiplicity="1" />
+          <End Role="CallerRequestHistory" Type="dvradius_NewModel.Store.CallerRequestHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="CallerRequestHistory">
+              <PropertyRef Name="TeleCallerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Address">
+          <End Role="Address" Type="dvradius_NewModel.Store.Address" Multiplicity="1" />
+          <End Role="Employee" Type="dvradius_NewModel.Store.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="AddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_EmployeeType">
+          <End Role="EmployeeType" Type="dvradius_NewModel.Store.EmployeeType" Multiplicity="1" />
+          <End Role="Employee" Type="dvradius_NewModel.Store.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeType">
+              <PropertyRef Name="EmployeeTypeID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="EmployeeTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Member_BusinessUnit">
+          <End Role="BusinessUnit" Type="dvradius_NewModel.Store.BusinessUnit" Multiplicity="1" />
+          <End Role="Member" Type="dvradius_NewModel.Store.Member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BusinessUnit">
+              <PropertyRef Name="BusinessUnitID" />
+            </Principal>
+            <Dependent Role="Member">
+              <PropertyRef Name="BusinessUnitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SMSHistory_BusinessUnit">
+          <End Role="BusinessUnit" Type="dvradius_NewModel.Store.BusinessUnit" Multiplicity="1" />
+          <End Role="SMSHistory" Type="dvradius_NewModel.Store.SMSHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BusinessUnit">
+              <PropertyRef Name="BusinessUnitID" />
+            </Principal>
+            <Dependent Role="SMSHistory">
+              <PropertyRef Name="BusinessUnitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SMSHistory_CallerRequestHistory">
+          <End Role="CallerRequestHistory" Type="dvradius_NewModel.Store.CallerRequestHistory" Multiplicity="1" />
+          <End Role="SMSHistory" Type="dvradius_NewModel.Store.SMSHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CallerRequestHistory">
+              <PropertyRef Name="CallerRequestHistoryID" />
+            </Principal>
+            <Dependent Role="SMSHistory">
+              <PropertyRef Name="CallerRequestHistoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="GetBusinessUnits" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Searchstring" Type="varchar" Mode="In" />
+          <Parameter Name="Area" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetBusinessUnits_Old" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="request" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="GetBusinessUnitsAutoPopulate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Searchstring" Type="varchar" Mode="In" />
+        </Function>
+        <!--Errors Found During Generation:
+      warning 6013: The table/view 'dvradius_New.dbo.BU_Staging' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="BU_Staging">
+        <Property Name="NatureofBiz" Type="varchar" MaxLength="200" />
+        <Property Name="SubCat" Type="varchar" MaxLength="100" />
+        <Property Name="BUName" Type="varchar" MaxLength="200" />
+        <Property Name="ContactPerson" Type="varchar" MaxLength="100" />
+        <Property Name="ContactNumber" Type="varchar" MaxLength="200" />
+        <Property Name="ADDR" Type="varchar" MaxLength="300" />
+        <Property Name="ADDRID" Type="int" />
+        <Property Name="AREA" Type="varchar" MaxLength="100" />
+        <Property Name="AINFO" Type="varchar" MaxLength="500" />
+      </EntityType>
+      Errors Found During Generation:
+      warning 6013: The table/view 'dvradius_New.dbo.vw_Categories' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+      
+      <EntityType Name="vw_Categories">
+        <Property Name="CategoryName" Type="varchar" MaxLength="50" />
+        <Property Name="CategoryID" Type="int" />
+      </EntityType>-->
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dvradius_NewModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="dvradiusEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="GetBusinessUnits" ReturnType="Collection(dvradius_NewModel.GetBusinessUnits_Result)">
+            <Parameter Name="Searchstring" Mode="In" Type="String" />
+            <Parameter Name="Area" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetBusinessUnitsAutoPopulate" ReturnType="Collection(String)">
+          <Parameter Name="Searchstring" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="Addresses" EntityType="dvradius_NewModel.Address" />
+          <EntitySet Name="BUContactNumbers" EntityType="dvradius_NewModel.BUContactNumber" />
+          <EntitySet Name="BusinessUnits" EntityType="dvradius_NewModel.BusinessUnit" />
+          <EntitySet Name="BusinessUnitCategories" EntityType="dvradius_NewModel.BusinessUnitCategory" />
+          <EntitySet Name="BusinessUnitPhoneNumbers" EntityType="dvradius_NewModel.BusinessUnitPhoneNumber" />
+          <EntitySet Name="BusinessUnitTypes" EntityType="dvradius_NewModel.BusinessUnitType" />
+          <EntitySet Name="Callers" EntityType="dvradius_NewModel.Caller" />
+          <EntitySet Name="CallerRequestHistories" EntityType="dvradius_NewModel.CallerRequestHistory" />
+          <EntitySet Name="Employees" EntityType="dvradius_NewModel.Employee" />
+          <EntitySet Name="EmployeeTypes" EntityType="dvradius_NewModel.EmployeeType" />
+          <EntitySet Name="Members" EntityType="dvradius_NewModel.Member" />
+          <EntitySet Name="PhoneNumberTypes" EntityType="dvradius_NewModel.PhoneNumberType" />
+          <EntitySet Name="Professions" EntityType="dvradius_NewModel.Profession" />
+          <EntitySet Name="SMSHistories" EntityType="dvradius_NewModel.SMSHistory" />
+          <EntitySet Name="SMSLimitFrequencies" EntityType="dvradius_NewModel.SMSLimitFrequency" />
+          <EntitySet Name="SMSQueues" EntityType="dvradius_NewModel.SMSQueue" />
+          <EntitySet Name="BusinessUnit_Flat" EntityType="dvradius_NewModel.BusinessUnit_Flat" />
+          <EntitySet Name="vw_BusinessUnitPhoneNumbers" EntityType="dvradius_NewModel.vw_BusinessUnitPhoneNumbers" />
+          <AssociationSet Name="FK_BusinessUnit_Address" Association="dvradius_NewModel.FK_BusinessUnit_Address">
+            <End Role="Address" EntitySet="Addresses" />
+            <End Role="BusinessUnit" EntitySet="BusinessUnits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Caller_Address" Association="dvradius_NewModel.FK_Caller_Address">
+            <End Role="Address" EntitySet="Addresses" />
+            <End Role="Caller" EntitySet="Callers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Address" Association="dvradius_NewModel.FK_Employee_Address">
+            <End Role="Address" EntitySet="Addresses" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BUContactNumber_BusinessUnit" Association="dvradius_NewModel.FK_BUContactNumber_BusinessUnit">
+            <End Role="BusinessUnit" EntitySet="BusinessUnits" />
+            <End Role="BUContactNumber" EntitySet="BUContactNumbers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BusinessUnit_BusinessUnitCategory" Association="dvradius_NewModel.FK_BusinessUnit_BusinessUnitCategory">
+            <End Role="BusinessUnitCategory" EntitySet="BusinessUnitCategories" />
+            <End Role="BusinessUnit" EntitySet="BusinessUnits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BusinessUnit_BusinessUnitType" Association="dvradius_NewModel.FK_BusinessUnit_BusinessUnitType">
+            <End Role="BusinessUnitType" EntitySet="BusinessUnitTypes" />
+            <End Role="BusinessUnit" EntitySet="BusinessUnits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BusinessUnit_SMSLimitFrequency" Association="dvradius_NewModel.FK_BusinessUnit_SMSLimitFrequency">
+            <End Role="SMSLimitFrequency" EntitySet="SMSLimitFrequencies" />
+            <End Role="BusinessUnit" EntitySet="BusinessUnits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BusinessUnitPhoneNumber_BusinessUnit" Association="dvradius_NewModel.FK_BusinessUnitPhoneNumber_BusinessUnit">
+            <End Role="BusinessUnit" EntitySet="BusinessUnits" />
+            <End Role="BusinessUnitPhoneNumber" EntitySet="BusinessUnitPhoneNumbers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BusinessUnitPhoneNumber_BusinessUnit1" Association="dvradius_NewModel.FK_BusinessUnitPhoneNumber_BusinessUnit1">
+            <End Role="BusinessUnit" EntitySet="BusinessUnits" />
+            <End Role="BusinessUnitPhoneNumber" EntitySet="BusinessUnitPhoneNumbers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Member_BusinessUnit" Association="dvradius_NewModel.FK_Member_BusinessUnit">
+            <End Role="BusinessUnit" EntitySet="BusinessUnits" />
+            <End Role="Member" EntitySet="Members" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SMSHistory_BusinessUnit" Association="dvradius_NewModel.FK_SMSHistory_BusinessUnit">
+            <End Role="BusinessUnit" EntitySet="BusinessUnits" />
+            <End Role="SMSHistory" EntitySet="SMSHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BusinessUnitCategory_BusinessUnitCategory" Association="dvradius_NewModel.FK_BusinessUnitCategory_BusinessUnitCategory">
+            <End Role="BusinessUnitCategory" EntitySet="BusinessUnitCategories" />
+            <End Role="BusinessUnitCategory1" EntitySet="BusinessUnitCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BusinessUnitPhoneNumber_BusinessUnitPhoneNumber1" Association="dvradius_NewModel.FK_BusinessUnitPhoneNumber_BusinessUnitPhoneNumber1">
+            <End Role="PhoneNumberType" EntitySet="PhoneNumberTypes" />
+            <End Role="BusinessUnitPhoneNumber" EntitySet="BusinessUnitPhoneNumbers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BusinessUnitType_SMSLimitFrequency" Association="dvradius_NewModel.FK_BusinessUnitType_SMSLimitFrequency">
+            <End Role="SMSLimitFrequency" EntitySet="SMSLimitFrequencies" />
+            <End Role="BusinessUnitType" EntitySet="BusinessUnitTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Caller_Profession" Association="dvradius_NewModel.FK_Caller_Profession">
+            <End Role="Profession" EntitySet="Professions" />
+            <End Role="Caller" EntitySet="Callers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CallerRequestHistory_Caller" Association="dvradius_NewModel.FK_CallerRequestHistory_Caller">
+            <End Role="Caller" EntitySet="Callers" />
+            <End Role="CallerRequestHistory" EntitySet="CallerRequestHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CallerRequestHistory_Employee" Association="dvradius_NewModel.FK_CallerRequestHistory_Employee">
+            <End Role="Employee" EntitySet="Employees" />
+            <End Role="CallerRequestHistory" EntitySet="CallerRequestHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SMSHistory_CallerRequestHistory" Association="dvradius_NewModel.FK_SMSHistory_CallerRequestHistory">
+            <End Role="CallerRequestHistory" EntitySet="CallerRequestHistories" />
+            <End Role="SMSHistory" EntitySet="SMSHistories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_EmployeeType" Association="dvradius_NewModel.FK_Employee_EmployeeType">
+            <End Role="EmployeeType" EntitySet="EmployeeTypes" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <FunctionImport Name="GetBusinessUnits_Old">
+            <Parameter Name="request" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="GetBusinessUnits_Result">
+          <Property Type="Int32" Name="BusinessUnitID" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="300" />
+          <Property Type="Int32" Name="CategoryID" Nullable="true" />
+          <Property Type="Int32" Name="BusinessUnitTypeID" Nullable="true" />
+          <Property Type="Int32" Name="AdressID" Nullable="true" />
+          <Property Type="Int32" Name="SMSLimitFrequency" Nullable="true" />
+          <Property Type="Int32" Name="SMSLimitCount" Nullable="true" />
+          <Property Type="String" Name="NatureofBusiness" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="PrimaryContactNumber" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="SMSContactNumber" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="ContactPersonName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="Keywords" Nullable="true" MaxLength="100" />
+          <Property Type="Boolean" Name="IsSMSEnabled" Nullable="true" />
+          <Property Type="String" Name="CategoryName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="AddressID" Nullable="true" />
+          <Property Type="String" Name="DoorNo" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="BuildingName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Street" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Area" Nullable="true" MaxLength="200" />
+          <Property Type="String" Name="City" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="District" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Pincode" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="LandMark" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="EmailID" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Address1" Nullable="true" MaxLength="300" />
+          <Property Type="String" Name="BusinessUnitTypeName" Nullable="true" MaxLength="20" />
+          <Property Type="Int32" Name="BusinessUnitSMSCountLimit" Nullable="true" />
+          <Property Type="Int32" Name="BusinessUnitSMSLimitFrequencyID" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="AddressID" />
+          </Key>
+          <Property Type="Int32" Name="AddressID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="DoorNo" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="BuildingName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Street" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Address1" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Area" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="City" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="District" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Pincode" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LandMark" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EmailID" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="CreatedOn" Precision="3" />
+          <Property Type="Int32" Name="ModifiedBy" />
+          <Property Type="DateTime" Name="ModifiedOn" Precision="3" />
+          <NavigationProperty Name="BusinessUnits" Relationship="dvradius_NewModel.FK_BusinessUnit_Address" FromRole="Address" ToRole="BusinessUnit" />
+          <NavigationProperty Name="Callers" Relationship="dvradius_NewModel.FK_Caller_Address" FromRole="Address" ToRole="Caller" />
+          <NavigationProperty Name="Employees" Relationship="dvradius_NewModel.FK_Employee_Address" FromRole="Address" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="BUContactNumber">
+          <Key>
+            <PropertyRef Name="BUContactNumberID" />
+            <PropertyRef Name="BusinessUnitID" />
+            <PropertyRef Name="ContactNumber" />
+          </Key>
+          <Property Type="Int32" Name="BUContactNumberID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="BusinessUnitID" Nullable="false" />
+          <Property Type="String" Name="ContactNumber" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="isSMSContact" />
+          <Property Type="Boolean" Name="isActive" />
+          <NavigationProperty Name="BusinessUnit" Relationship="dvradius_NewModel.FK_BUContactNumber_BusinessUnit" FromRole="BUContactNumber" ToRole="BusinessUnit" />
+        </EntityType>
+        <EntityType Name="BusinessUnit">
+          <Key>
+            <PropertyRef Name="BusinessUnitID" />
+          </Key>
+          <Property Type="Int32" Name="BusinessUnitID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NatureofBusiness" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="CategoryID" />
+          <Property Type="Int32" Name="BusinessUnitTypeID" />
+          <Property Type="Int32" Name="AdressID" />
+          <Property Type="Int32" Name="SMSLimitFrequency" />
+          <Property Type="Int32" Name="SMSLimitCount" />
+          <Property Type="String" Name="PrimaryContactNumber" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SecondaryContactNumber" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="SMSContactNumber" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ContactPersonName" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Keywords" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="AdditionalInfo" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="IsSMSEnabled" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="CreatedOn" Precision="3" />
+          <Property Type="Int32" Name="ModifiedBy" />
+          <Property Type="DateTime" Name="ModifiedOn" Precision="3" />
+          <NavigationProperty Name="Address" Relationship="dvradius_NewModel.FK_BusinessUnit_Address" FromRole="BusinessUnit" ToRole="Address" />
+          <NavigationProperty Name="BUContactNumbers" Relationship="dvradius_NewModel.FK_BUContactNumber_BusinessUnit" FromRole="BusinessUnit" ToRole="BUContactNumber" />
+          <NavigationProperty Name="BusinessUnitCategory" Relationship="dvradius_NewModel.FK_BusinessUnit_BusinessUnitCategory" FromRole="BusinessUnit" ToRole="BusinessUnitCategory" />
+          <NavigationProperty Name="BusinessUnitType" Relationship="dvradius_NewModel.FK_BusinessUnit_BusinessUnitType" FromRole="BusinessUnit" ToRole="BusinessUnitType" />
+          <NavigationProperty Name="SMSLimitFrequency1" Relationship="dvradius_NewModel.FK_BusinessUnit_SMSLimitFrequency" FromRole="BusinessUnit" ToRole="SMSLimitFrequency" />
+          <NavigationProperty Name="BusinessUnitPhoneNumbers" Relationship="dvradius_NewModel.FK_BusinessUnitPhoneNumber_BusinessUnit" FromRole="BusinessUnit" ToRole="BusinessUnitPhoneNumber" />
+          <NavigationProperty Name="BusinessUnitPhoneNumbers1" Relationship="dvradius_NewModel.FK_BusinessUnitPhoneNumber_BusinessUnit1" FromRole="BusinessUnit" ToRole="BusinessUnitPhoneNumber" />
+          <NavigationProperty Name="Members" Relationship="dvradius_NewModel.FK_Member_BusinessUnit" FromRole="BusinessUnit" ToRole="Member" />
+          <NavigationProperty Name="SMSHistories" Relationship="dvradius_NewModel.FK_SMSHistory_BusinessUnit" FromRole="BusinessUnit" ToRole="SMSHistory" />
+        </EntityType>
+        <EntityType Name="BusinessUnitCategory">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Type="Int32" Name="CategoryID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LongName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Description" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="ParentID" />
+          <NavigationProperty Name="BusinessUnits" Relationship="dvradius_NewModel.FK_BusinessUnit_BusinessUnitCategory" FromRole="BusinessUnitCategory" ToRole="BusinessUnit" />
+          <NavigationProperty Name="BusinessUnitCategory1" Relationship="dvradius_NewModel.FK_BusinessUnitCategory_BusinessUnitCategory" FromRole="BusinessUnitCategory" ToRole="BusinessUnitCategory1" />
+          <NavigationProperty Name="BusinessUnitCategory2" Relationship="dvradius_NewModel.FK_BusinessUnitCategory_BusinessUnitCategory" FromRole="BusinessUnitCategory1" ToRole="BusinessUnitCategory" />
+        </EntityType>
+        <EntityType Name="BusinessUnitPhoneNumber">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="BusinessUnitId" Nullable="false" />
+          <Property Type="String" Name="PhoneNumber" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="PhoneNumberTypeId" Nullable="false" />
+          <Property Type="Boolean" Name="isActive" Nullable="false" />
+          <NavigationProperty Name="BusinessUnit" Relationship="dvradius_NewModel.FK_BusinessUnitPhoneNumber_BusinessUnit" FromRole="BusinessUnitPhoneNumber" ToRole="BusinessUnit" />
+          <NavigationProperty Name="BusinessUnit1" Relationship="dvradius_NewModel.FK_BusinessUnitPhoneNumber_BusinessUnit1" FromRole="BusinessUnitPhoneNumber" ToRole="BusinessUnit" />
+          <NavigationProperty Name="PhoneNumberType" Relationship="dvradius_NewModel.FK_BusinessUnitPhoneNumber_BusinessUnitPhoneNumber1" FromRole="BusinessUnitPhoneNumber" ToRole="PhoneNumberType" />
+        </EntityType>
+        <EntityType Name="BusinessUnitType">
+          <Key>
+            <PropertyRef Name="BusinessUnitTypeID" />
+          </Key>
+          <Property Type="Int32" Name="BusinessUnitTypeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="SMSCountLimit" />
+          <Property Type="Int32" Name="SMSLimitFrequencyID" />
+          <NavigationProperty Name="BusinessUnits" Relationship="dvradius_NewModel.FK_BusinessUnit_BusinessUnitType" FromRole="BusinessUnitType" ToRole="BusinessUnit" />
+          <NavigationProperty Name="SMSLimitFrequency" Relationship="dvradius_NewModel.FK_BusinessUnitType_SMSLimitFrequency" FromRole="BusinessUnitType" ToRole="SMSLimitFrequency" />
+        </EntityType>
+        <EntityType Name="Caller">
+          <Key>
+            <PropertyRef Name="CallerID" />
+          </Key>
+          <Property Type="Int32" Name="CallerID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LastName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="PhoneNumber" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="AlternatePhoneNumber" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="ProfessionID" />
+          <Property Type="Int32" Name="AddressID" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="CreatedOn" Precision="3" />
+          <Property Type="Int32" Name="ModifiedBy" />
+          <Property Type="DateTime" Name="ModifiedOn" Precision="3" />
+          <NavigationProperty Name="Address" Relationship="dvradius_NewModel.FK_Caller_Address" FromRole="Caller" ToRole="Address" />
+          <NavigationProperty Name="Profession" Relationship="dvradius_NewModel.FK_Caller_Profession" FromRole="Caller" ToRole="Profession" />
+          <NavigationProperty Name="CallerRequestHistories" Relationship="dvradius_NewModel.FK_CallerRequestHistory_Caller" FromRole="Caller" ToRole="CallerRequestHistory" />
+        </EntityType>
+        <EntityType Name="CallerRequestHistory">
+          <Key>
+            <PropertyRef Name="CallerRequestHistoryID" />
+          </Key>
+          <Property Type="Int32" Name="CallerRequestHistoryID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="CallerID" Nullable="false" />
+          <Property Type="DateTime" Name="CallDateTime" Nullable="false" Precision="3" />
+          <Property Type="String" Name="RequestedDetails" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="TeleCallerID" Nullable="false" />
+          <Property Type="Int32" Name="CallDurationinSecs" Nullable="false" />
+          <NavigationProperty Name="Caller" Relationship="dvradius_NewModel.FK_CallerRequestHistory_Caller" FromRole="CallerRequestHistory" ToRole="Caller" />
+          <NavigationProperty Name="Employee" Relationship="dvradius_NewModel.FK_CallerRequestHistory_Employee" FromRole="CallerRequestHistory" ToRole="Employee" />
+          <NavigationProperty Name="SMSHistories" Relationship="dvradius_NewModel.FK_SMSHistory_CallerRequestHistory" FromRole="CallerRequestHistory" ToRole="SMSHistory" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Type="Int32" Name="EmployeeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LastName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="EmployeeTypeID" Nullable="false" />
+          <Property Type="Int32" Name="AddressID" Nullable="false" />
+          <Property Type="String" Name="WindowsNTName" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="CreatedOn" Precision="3" />
+          <Property Type="Int32" Name="ModifiedBy" />
+          <Property Type="DateTime" Name="ModifiedOn" Precision="3" />
+          <NavigationProperty Name="Address" Relationship="dvradius_NewModel.FK_Employee_Address" FromRole="Employee" ToRole="Address" />
+          <NavigationProperty Name="CallerRequestHistories" Relationship="dvradius_NewModel.FK_CallerRequestHistory_Employee" FromRole="Employee" ToRole="CallerRequestHistory" />
+          <NavigationProperty Name="EmployeeType" Relationship="dvradius_NewModel.FK_Employee_EmployeeType" FromRole="Employee" ToRole="EmployeeType" />
+        </EntityType>
+        <EntityType Name="EmployeeType">
+          <Key>
+            <PropertyRef Name="EmployeeTypeID" />
+          </Key>
+          <Property Type="Int32" Name="EmployeeTypeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Description" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Employees" Relationship="dvradius_NewModel.FK_Employee_EmployeeType" FromRole="EmployeeType" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="MemberID" />
+          </Key>
+          <Property Type="Int32" Name="MemberID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="BusinessUnitID" Nullable="false" />
+          <Property Type="Decimal" Name="AmountPaid" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="DateTime" Name="StartDate" Precision="3" />
+          <Property Type="DateTime" Name="EndDate" Precision="3" />
+          <NavigationProperty Name="BusinessUnit" Relationship="dvradius_NewModel.FK_Member_BusinessUnit" FromRole="Member" ToRole="BusinessUnit" />
+        </EntityType>
+        <EntityType Name="PhoneNumberType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Type" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BusinessUnitPhoneNumbers" Relationship="dvradius_NewModel.FK_BusinessUnitPhoneNumber_BusinessUnitPhoneNumber1" FromRole="PhoneNumberType" ToRole="BusinessUnitPhoneNumber" />
+        </EntityType>
+        <EntityType Name="Profession">
+          <Key>
+            <PropertyRef Name="ProfessionID" />
+          </Key>
+          <Property Type="Int32" Name="ProfessionID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Description" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Callers" Relationship="dvradius_NewModel.FK_Caller_Profession" FromRole="Profession" ToRole="Caller" />
+        </EntityType>
+        <EntityType Name="SMSHistory">
+          <Key>
+            <PropertyRef Name="SMSHistoryID" />
+          </Key>
+          <Property Type="Int32" Name="SMSHistoryID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="CallerRequestHistoryID" Nullable="false" />
+          <Property Type="Int32" Name="BusinessUnitID" Nullable="false" />
+          <Property Type="Boolean" Name="isSMSSenttoCaller" />
+          <Property Type="Boolean" Name="isSMSSenttoBU" />
+          <NavigationProperty Name="BusinessUnit" Relationship="dvradius_NewModel.FK_SMSHistory_BusinessUnit" FromRole="SMSHistory" ToRole="BusinessUnit" />
+          <NavigationProperty Name="CallerRequestHistory" Relationship="dvradius_NewModel.FK_SMSHistory_CallerRequestHistory" FromRole="SMSHistory" ToRole="CallerRequestHistory" />
+        </EntityType>
+        <EntityType Name="SMSLimitFrequency">
+          <Key>
+            <PropertyRef Name="SMSLimitFrequencyID" />
+          </Key>
+          <Property Type="Int32" Name="SMSLimitFrequencyID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Description" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BusinessUnits" Relationship="dvradius_NewModel.FK_BusinessUnit_SMSLimitFrequency" FromRole="SMSLimitFrequency" ToRole="BusinessUnit" />
+          <NavigationProperty Name="BusinessUnitTypes" Relationship="dvradius_NewModel.FK_BusinessUnitType_SMSLimitFrequency" FromRole="SMSLimitFrequency" ToRole="BusinessUnitType" />
+        </EntityType>
+        <EntityType Name="SMSQueue">
+          <Key>
+            <PropertyRef Name="SMSQueueID" />
+          </Key>
+          <Property Type="Int32" Name="SMSQueueID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="RecipientMobileNumber" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Message" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="QueueDateTime" Precision="3" />
+          <Property Type="Int32" Name="ReturnCode" />
+          <Property Type="String" Name="ReturnMessage" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="isSMSSent" />
+          <Property Type="DateTime" Name="ProcessedDateTime" Precision="3" />
+          <Property Type="Boolean" Name="isProcessed" />
+        </EntityType>
+        <EntityType Name="BusinessUnit_Flat">
+          <Key>
+            <PropertyRef Name="BusinessUnitID" />
+          </Key>
+          <Property Type="Int32" Name="BusinessUnitID" Nullable="false" />
+          <Property Type="String" Name="Name" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="NatureofBusiness" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="CategoryID" />
+          <Property Type="Int32" Name="BusinessUnitTypeID" />
+          <Property Type="Int32" Name="AdressID" />
+          <Property Type="Int32" Name="SMSLimitFrequency" />
+          <Property Type="Int32" Name="SMSLimitCount" />
+          <Property Type="String" Name="PrimaryContactNumber" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SMSContactNumber" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ContactPersonName" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Keywords" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="AdditionalInfo" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="IsSMSEnabled" />
+          <Property Type="String" Name="CategoryName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="AddressID" />
+          <Property Type="String" Name="DoorNo" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="BuildingName" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Street" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Address1" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Area" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="City" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="District" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Pincode" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LandMark" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EmailID" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="CreatedBy" />
+          <Property Type="DateTime" Name="CreatedOn" Precision="3" />
+          <Property Type="Int32" Name="ModifiedBy" />
+          <Property Type="DateTime" Name="ModifiedOn" Precision="3" />
+          <Property Type="String" Name="BusinessUnitTypeName" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="BusinessUnitSMSCountLimit" />
+          <Property Type="Int32" Name="BusinessUnitSMSLimitFrequencyID" />
+        </EntityType>
+        <EntityType Name="vw_BusinessUnitPhoneNumbers">
+          <Key>
+            <PropertyRef Name="BusinessUnitID" />
+          </Key>
+          <Property Type="Int32" Name="BusinessUnitID" Nullable="false" />
+          <Property Type="String" Name="ContactNumber" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SMSContactNumber" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_BusinessUnit_Address">
+          <End Type="dvradius_NewModel.Address" Role="Address" Multiplicity="0..1" />
+          <End Type="dvradius_NewModel.BusinessUnit" Role="BusinessUnit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressID" />
+            </Principal>
+            <Dependent Role="BusinessUnit">
+              <PropertyRef Name="AdressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Caller_Address">
+          <End Type="dvradius_NewModel.Address" Role="Address" Multiplicity="0..1" />
+          <End Type="dvradius_NewModel.Caller" Role="Caller" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressID" />
+            </Principal>
+            <Dependent Role="Caller">
+              <PropertyRef Name="AddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Address">
+          <End Type="dvradius_NewModel.Address" Role="Address" Multiplicity="1" />
+          <End Type="dvradius_NewModel.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="AddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BUContactNumber_BusinessUnit">
+          <End Type="dvradius_NewModel.BusinessUnit" Role="BusinessUnit" Multiplicity="1" />
+          <End Type="dvradius_NewModel.BUContactNumber" Role="BUContactNumber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BusinessUnit">
+              <PropertyRef Name="BusinessUnitID" />
+            </Principal>
+            <Dependent Role="BUContactNumber">
+              <PropertyRef Name="BusinessUnitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BusinessUnit_BusinessUnitCategory">
+          <End Type="dvradius_NewModel.BusinessUnitCategory" Role="BusinessUnitCategory" Multiplicity="0..1" />
+          <End Type="dvradius_NewModel.BusinessUnit" Role="BusinessUnit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BusinessUnitCategory">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="BusinessUnit">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BusinessUnit_BusinessUnitType">
+          <End Type="dvradius_NewModel.BusinessUnitType" Role="BusinessUnitType" Multiplicity="0..1" />
+          <End Type="dvradius_NewModel.BusinessUnit" Role="BusinessUnit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BusinessUnitType">
+              <PropertyRef Name="BusinessUnitTypeID" />
+            </Principal>
+            <Dependent Role="BusinessUnit">
+              <PropertyRef Name="BusinessUnitTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BusinessUnit_SMSLimitFrequency">
+          <End Type="dvradius_NewModel.SMSLimitFrequency" Role="SMSLimitFrequency" Multiplicity="0..1" />
+          <End Type="dvradius_NewModel.BusinessUnit" Role="BusinessUnit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SMSLimitFrequency">
+              <PropertyRef Name="SMSLimitFrequencyID" />
+            </Principal>
+            <Dependent Role="BusinessUnit">
+              <PropertyRef Name="SMSLimitFrequency" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BusinessUnitPhoneNumber_BusinessUnit">
+          <End Type="dvradius_NewModel.BusinessUnit" Role="BusinessUnit" Multiplicity="1" />
+          <End Type="dvradius_NewModel.BusinessUnitPhoneNumber" Role="BusinessUnitPhoneNumber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BusinessUnit">
+              <PropertyRef Name="BusinessUnitID" />
+            </Principal>
+            <Dependent Role="BusinessUnitPhoneNumber">
+              <PropertyRef Name="BusinessUnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BusinessUnitPhoneNumber_BusinessUnit1">
+          <End Type="dvradius_NewModel.BusinessUnit" Role="BusinessUnit" Multiplicity="1" />
+          <End Type="dvradius_NewModel.BusinessUnitPhoneNumber" Role="BusinessUnitPhoneNumber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BusinessUnit">
+              <PropertyRef Name="BusinessUnitID" />
+            </Principal>
+            <Dependent Role="BusinessUnitPhoneNumber">
+              <PropertyRef Name="BusinessUnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Member_BusinessUnit">
+          <End Type="dvradius_NewModel.BusinessUnit" Role="BusinessUnit" Multiplicity="1" />
+          <End Type="dvradius_NewModel.Member" Role="Member" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BusinessUnit">
+              <PropertyRef Name="BusinessUnitID" />
+            </Principal>
+            <Dependent Role="Member">
+              <PropertyRef Name="BusinessUnitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SMSHistory_BusinessUnit">
+          <End Type="dvradius_NewModel.BusinessUnit" Role="BusinessUnit" Multiplicity="1" />
+          <End Type="dvradius_NewModel.SMSHistory" Role="SMSHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BusinessUnit">
+              <PropertyRef Name="BusinessUnitID" />
+            </Principal>
+            <Dependent Role="SMSHistory">
+              <PropertyRef Name="BusinessUnitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BusinessUnitCategory_BusinessUnitCategory">
+          <End Type="dvradius_NewModel.BusinessUnitCategory" Role="BusinessUnitCategory" Multiplicity="0..1" />
+          <End Type="dvradius_NewModel.BusinessUnitCategory" Role="BusinessUnitCategory1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BusinessUnitCategory">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="BusinessUnitCategory1">
+              <PropertyRef Name="ParentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BusinessUnitPhoneNumber_BusinessUnitPhoneNumber1">
+          <End Type="dvradius_NewModel.PhoneNumberType" Role="PhoneNumberType" Multiplicity="1" />
+          <End Type="dvradius_NewModel.BusinessUnitPhoneNumber" Role="BusinessUnitPhoneNumber" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhoneNumberType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BusinessUnitPhoneNumber">
+              <PropertyRef Name="PhoneNumberTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BusinessUnitType_SMSLimitFrequency">
+          <End Type="dvradius_NewModel.SMSLimitFrequency" Role="SMSLimitFrequency" Multiplicity="0..1" />
+          <End Type="dvradius_NewModel.BusinessUnitType" Role="BusinessUnitType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SMSLimitFrequency">
+              <PropertyRef Name="SMSLimitFrequencyID" />
+            </Principal>
+            <Dependent Role="BusinessUnitType">
+              <PropertyRef Name="SMSLimitFrequencyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Caller_Profession">
+          <End Type="dvradius_NewModel.Profession" Role="Profession" Multiplicity="0..1" />
+          <End Type="dvradius_NewModel.Caller" Role="Caller" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profession">
+              <PropertyRef Name="ProfessionID" />
+            </Principal>
+            <Dependent Role="Caller">
+              <PropertyRef Name="ProfessionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CallerRequestHistory_Caller">
+          <End Type="dvradius_NewModel.Caller" Role="Caller" Multiplicity="1" />
+          <End Type="dvradius_NewModel.CallerRequestHistory" Role="CallerRequestHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Caller">
+              <PropertyRef Name="CallerID" />
+            </Principal>
+            <Dependent Role="CallerRequestHistory">
+              <PropertyRef Name="CallerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CallerRequestHistory_Employee">
+          <End Type="dvradius_NewModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="dvradius_NewModel.CallerRequestHistory" Role="CallerRequestHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="CallerRequestHistory">
+              <PropertyRef Name="TeleCallerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SMSHistory_CallerRequestHistory">
+          <End Type="dvradius_NewModel.CallerRequestHistory" Role="CallerRequestHistory" Multiplicity="1" />
+          <End Type="dvradius_NewModel.SMSHistory" Role="SMSHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CallerRequestHistory">
+              <PropertyRef Name="CallerRequestHistoryID" />
+            </Principal>
+            <Dependent Role="SMSHistory">
+              <PropertyRef Name="CallerRequestHistoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_EmployeeType">
+          <End Type="dvradius_NewModel.EmployeeType" Role="EmployeeType" Multiplicity="1" />
+          <End Type="dvradius_NewModel.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeType">
+              <PropertyRef Name="EmployeeTypeID" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="EmployeeTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dvradius_NewModelStoreContainer" CdmEntityContainer="dvradiusEntities">
+          <FunctionImportMapping FunctionImportName="GetBusinessUnits" FunctionName="dvradius_NewModel.Store.GetBusinessUnits">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="dvradius_NewModel.GetBusinessUnits_Result">
+                <ScalarProperty Name="BusinessUnitID" ColumnName="BusinessUnitID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="BusinessUnitTypeID" ColumnName="BusinessUnitTypeID" />
+                <ScalarProperty Name="AdressID" ColumnName="AdressID" />
+                <ScalarProperty Name="SMSLimitFrequency" ColumnName="SMSLimitFrequency" />
+                <ScalarProperty Name="SMSLimitCount" ColumnName="SMSLimitCount" />
+                <ScalarProperty Name="NatureofBusiness" ColumnName="NatureofBusiness" />
+                <ScalarProperty Name="PrimaryContactNumber" ColumnName="PrimaryContactNumber" />
+                <ScalarProperty Name="SMSContactNumber" ColumnName="SMSContactNumber" />
+                <ScalarProperty Name="ContactPersonName" ColumnName="ContactPersonName" />
+                <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+                <ScalarProperty Name="IsSMSEnabled" ColumnName="IsSMSEnabled" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+                <ScalarProperty Name="DoorNo" ColumnName="DoorNo" />
+                <ScalarProperty Name="BuildingName" ColumnName="BuildingName" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="Pincode" ColumnName="Pincode" />
+                <ScalarProperty Name="LandMark" ColumnName="LandMark" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="BusinessUnitTypeName" ColumnName="BusinessUnitTypeName" />
+                <ScalarProperty Name="BusinessUnitSMSCountLimit" ColumnName="BusinessUnitSMSCountLimit" />
+                <ScalarProperty Name="BusinessUnitSMSLimitFrequencyID" ColumnName="BusinessUnitSMSLimitFrequencyID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetBusinessUnitsAutoPopulate" FunctionName="dvradius_NewModel.Store.GetBusinessUnitsAutoPopulate" />
+          <EntitySetMapping Name="Addresses">
+            <EntityTypeMapping TypeName="dvradius_NewModel.Address">
+              <MappingFragment StoreEntitySet="Address">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="LandMark" ColumnName="LandMark" />
+                <ScalarProperty Name="Pincode" ColumnName="Pincode" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="BuildingName" ColumnName="BuildingName" />
+                <ScalarProperty Name="DoorNo" ColumnName="DoorNo" />
+                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BUContactNumbers">
+            <EntityTypeMapping TypeName="dvradius_NewModel.BUContactNumber">
+              <MappingFragment StoreEntitySet="BUContactNumber">
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="isSMSContact" ColumnName="isSMSContact" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="BusinessUnitID" ColumnName="BusinessUnitID" />
+                <ScalarProperty Name="BUContactNumberID" ColumnName="BUContactNumberID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BusinessUnits">
+            <EntityTypeMapping TypeName="dvradius_NewModel.BusinessUnit">
+              <MappingFragment StoreEntitySet="BusinessUnit">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsSMSEnabled" ColumnName="IsSMSEnabled" />
+                <ScalarProperty Name="AdditionalInfo" ColumnName="AdditionalInfo" />
+                <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+                <ScalarProperty Name="ContactPersonName" ColumnName="ContactPersonName" />
+                <ScalarProperty Name="SMSContactNumber" ColumnName="SMSContactNumber" />
+                <ScalarProperty Name="SecondaryContactNumber" ColumnName="SecondaryContactNumber" />
+                <ScalarProperty Name="PrimaryContactNumber" ColumnName="PrimaryContactNumber" />
+                <ScalarProperty Name="SMSLimitCount" ColumnName="SMSLimitCount" />
+                <ScalarProperty Name="SMSLimitFrequency" ColumnName="SMSLimitFrequency" />
+                <ScalarProperty Name="AdressID" ColumnName="AdressID" />
+                <ScalarProperty Name="BusinessUnitTypeID" ColumnName="BusinessUnitTypeID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="NatureofBusiness" ColumnName="NatureofBusiness" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="BusinessUnitID" ColumnName="BusinessUnitID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BusinessUnitCategories">
+            <EntityTypeMapping TypeName="dvradius_NewModel.BusinessUnitCategory">
+              <MappingFragment StoreEntitySet="BusinessUnitCategory">
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="LongName" ColumnName="LongName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BusinessUnitPhoneNumbers">
+            <EntityTypeMapping TypeName="dvradius_NewModel.BusinessUnitPhoneNumber">
+              <MappingFragment StoreEntitySet="BusinessUnitPhoneNumber">
+                <ScalarProperty Name="isActive" ColumnName="isActive" />
+                <ScalarProperty Name="PhoneNumberTypeId" ColumnName="PhoneNumberTypeId" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="BusinessUnitId" ColumnName="BusinessUnitId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BusinessUnitTypes">
+            <EntityTypeMapping TypeName="dvradius_NewModel.BusinessUnitType">
+              <MappingFragment StoreEntitySet="BusinessUnitType">
+                <ScalarProperty Name="SMSLimitFrequencyID" ColumnName="SMSLimitFrequencyID" />
+                <ScalarProperty Name="SMSCountLimit" ColumnName="SMSCountLimit" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="BusinessUnitTypeID" ColumnName="BusinessUnitTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Callers">
+            <EntityTypeMapping TypeName="dvradius_NewModel.Caller">
+              <MappingFragment StoreEntitySet="Caller">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+                <ScalarProperty Name="ProfessionID" ColumnName="ProfessionID" />
+                <ScalarProperty Name="AlternatePhoneNumber" ColumnName="AlternatePhoneNumber" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="CallerID" ColumnName="CallerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CallerRequestHistories">
+            <EntityTypeMapping TypeName="dvradius_NewModel.CallerRequestHistory">
+              <MappingFragment StoreEntitySet="CallerRequestHistory">
+                <ScalarProperty Name="CallDurationinSecs" ColumnName="CallDurationinSecs" />
+                <ScalarProperty Name="TeleCallerID" ColumnName="TeleCallerID" />
+                <ScalarProperty Name="RequestedDetails" ColumnName="RequestedDetails" />
+                <ScalarProperty Name="CallDateTime" ColumnName="CallDateTime" />
+                <ScalarProperty Name="CallerID" ColumnName="CallerID" />
+                <ScalarProperty Name="CallerRequestHistoryID" ColumnName="CallerRequestHistoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="dvradius_NewModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="WindowsNTName" ColumnName="WindowsNTName" />
+                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+                <ScalarProperty Name="EmployeeTypeID" ColumnName="EmployeeTypeID" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeTypes">
+            <EntityTypeMapping TypeName="dvradius_NewModel.EmployeeType">
+              <MappingFragment StoreEntitySet="EmployeeType">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="EmployeeTypeID" ColumnName="EmployeeTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Members">
+            <EntityTypeMapping TypeName="dvradius_NewModel.Member">
+              <MappingFragment StoreEntitySet="Member">
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="AmountPaid" ColumnName="AmountPaid" />
+                <ScalarProperty Name="BusinessUnitID" ColumnName="BusinessUnitID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PhoneNumberTypes">
+            <EntityTypeMapping TypeName="dvradius_NewModel.PhoneNumberType">
+              <MappingFragment StoreEntitySet="PhoneNumberType">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Professions">
+            <EntityTypeMapping TypeName="dvradius_NewModel.Profession">
+              <MappingFragment StoreEntitySet="Profession">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ProfessionID" ColumnName="ProfessionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SMSHistories">
+            <EntityTypeMapping TypeName="dvradius_NewModel.SMSHistory">
+              <MappingFragment StoreEntitySet="SMSHistory">
+                <ScalarProperty Name="isSMSSenttoBU" ColumnName="isSMSSenttoBU" />
+                <ScalarProperty Name="isSMSSenttoCaller" ColumnName="isSMSSenttoCaller" />
+                <ScalarProperty Name="BusinessUnitID" ColumnName="BusinessUnitID" />
+                <ScalarProperty Name="CallerRequestHistoryID" ColumnName="CallerRequestHistoryID" />
+                <ScalarProperty Name="SMSHistoryID" ColumnName="SMSHistoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SMSLimitFrequencies">
+            <EntityTypeMapping TypeName="dvradius_NewModel.SMSLimitFrequency">
+              <MappingFragment StoreEntitySet="SMSLimitFrequency">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SMSLimitFrequencyID" ColumnName="SMSLimitFrequencyID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SMSQueues">
+            <EntityTypeMapping TypeName="dvradius_NewModel.SMSQueue">
+              <MappingFragment StoreEntitySet="SMSQueue">
+                <ScalarProperty Name="isProcessed" ColumnName="isProcessed" />
+                <ScalarProperty Name="ProcessedDateTime" ColumnName="ProcessedDateTime" />
+                <ScalarProperty Name="isSMSSent" ColumnName="isSMSSent" />
+                <ScalarProperty Name="ReturnMessage" ColumnName="ReturnMessage" />
+                <ScalarProperty Name="ReturnCode" ColumnName="ReturnCode" />
+                <ScalarProperty Name="QueueDateTime" ColumnName="QueueDateTime" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="RecipientMobileNumber" ColumnName="RecipientMobileNumber" />
+                <ScalarProperty Name="SMSQueueID" ColumnName="SMSQueueID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BusinessUnit_Flat">
+            <EntityTypeMapping TypeName="dvradius_NewModel.BusinessUnit_Flat">
+              <MappingFragment StoreEntitySet="BusinessUnit_Flat">
+                <ScalarProperty Name="BusinessUnitSMSLimitFrequencyID" ColumnName="BusinessUnitSMSLimitFrequencyID" />
+                <ScalarProperty Name="BusinessUnitSMSCountLimit" ColumnName="BusinessUnitSMSCountLimit" />
+                <ScalarProperty Name="BusinessUnitTypeName" ColumnName="BusinessUnitTypeName" />
+                <ScalarProperty Name="ModifiedOn" ColumnName="ModifiedOn" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="LandMark" ColumnName="LandMark" />
+                <ScalarProperty Name="Pincode" ColumnName="Pincode" />
+                <ScalarProperty Name="District" ColumnName="District" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="Address1" ColumnName="Address1" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="BuildingName" ColumnName="BuildingName" />
+                <ScalarProperty Name="DoorNo" ColumnName="DoorNo" />
+                <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="IsSMSEnabled" ColumnName="IsSMSEnabled" />
+                <ScalarProperty Name="AdditionalInfo" ColumnName="AdditionalInfo" />
+                <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+                <ScalarProperty Name="ContactPersonName" ColumnName="ContactPersonName" />
+                <ScalarProperty Name="SMSContactNumber" ColumnName="SMSContactNumber" />
+                <ScalarProperty Name="PrimaryContactNumber" ColumnName="PrimaryContactNumber" />
+                <ScalarProperty Name="SMSLimitCount" ColumnName="SMSLimitCount" />
+                <ScalarProperty Name="SMSLimitFrequency" ColumnName="SMSLimitFrequency" />
+                <ScalarProperty Name="AdressID" ColumnName="AdressID" />
+                <ScalarProperty Name="BusinessUnitTypeID" ColumnName="BusinessUnitTypeID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="NatureofBusiness" ColumnName="NatureofBusiness" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="BusinessUnitID" ColumnName="BusinessUnitID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_BusinessUnitPhoneNumbers">
+            <EntityTypeMapping TypeName="dvradius_NewModel.vw_BusinessUnitPhoneNumbers">
+              <MappingFragment StoreEntitySet="vw_BusinessUnitPhoneNumbers">
+                <ScalarProperty Name="SMSContactNumber" ColumnName="SMSContactNumber" />
+                <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+                <ScalarProperty Name="BusinessUnitID" ColumnName="BusinessUnitID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetBusinessUnits_Old" FunctionName="dvradius_NewModel.Store.GetBusinessUnits_Old" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
