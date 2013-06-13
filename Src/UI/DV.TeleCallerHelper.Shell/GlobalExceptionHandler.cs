@@ -43,7 +43,7 @@ namespace DV.TeleCallerHelper.Shell
             var statusBarEvent = eventAggregator.GetEvent<StatusbarEvent>();
             statusBarEvent.Publish(new StatusbarEventArgs(e.Exception.Message, Common.StatusMessageType.Error));
             Trace.TraceError(string.Format("Current_DispatcherUnhandledException>>Error occured at {0} Error Message:{1}", DateTime.Now, e.Exception.ToString()));
-            //MessageBox.Show(e.Exception.Message, "Unhandled Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show(e.Exception.Message, "Unhandled Exception", MessageBoxButton.OK, MessageBoxImage.Error);
             e.Handled = true;
         }
 
